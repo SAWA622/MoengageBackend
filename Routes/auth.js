@@ -1,4 +1,4 @@
-// auth.js
+
 const express = require("express");
 const jwt = require("jsonwebtoken");
 
@@ -50,13 +50,10 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid username or password" });
     }
 
-    // Generate a JSON web token
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
-
-    // Send the token as a response
+    
     res.status(200).json({ token });
   } catch (err) {
-    // Handle errors
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
