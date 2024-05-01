@@ -1,4 +1,4 @@
-// brewery.js
+
 const express = require("express");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
@@ -46,7 +46,6 @@ router.get("/search", async (req, res) => {
     const data = response.data;
     res.status(200).json(data);
   } catch (err) {
-    // Handle errors
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
